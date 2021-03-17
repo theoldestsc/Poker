@@ -4,7 +4,9 @@
 #include <QWidget>
 #include <QPainter>
 #include <QLine>
-#include "SitAtTheTable.h"
+#include "SitPlace.h"
+
+
 
 class PokerTable : public QWidget
 {
@@ -14,8 +16,8 @@ public:
     PokerTable(QWidget *parent = nullptr);
     ~PokerTable();
 private:
-    QPoint* p;
-    SitAtTheTable* d = nullptr;
+    SitPlace* sitAtTheTableButton;
+
 protected:
     void paintEvent(QPaintEvent *event) override;
 

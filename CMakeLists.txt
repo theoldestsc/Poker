@@ -31,8 +31,8 @@ set(PROJECT_SOURCES
         main.cpp
         PokerTable.cpp
         PokerTable.h
-        SitAtTheTable.cpp
-        SitAtTheTable.h
+        SitPlace.cpp
+        SitPlace.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

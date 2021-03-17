@@ -3,22 +3,19 @@
 
 
 PokerTable::PokerTable(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent),
+      sitAtTheTableButton(new SitPlace(this))
 {
-
-      p = new QPoint(-50, 50);
-      d = new SitAtTheTable(*p, parent);
-
 
 }
 
 void PokerTable::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event);
-    QPainter painter;
-    painter.begin(this);
+    QPainter painter(this);
+
     int side = qMin(width(), height());
-    if((width() - height()) / 2 > 0)
+    if((width() - height())  > 0)
         painter.setViewport((width() - height()) / 2, (height() - side) / 2, side, side);
     else
         painter.setViewport(0, (height() - side) / 2, side, side);
@@ -47,24 +44,6 @@ void PokerTable::paintEvent(QPaintEvent* event)
     painter.setPen(penPokerTableCardArea);
     painter.drawRoundedRect(rectCardArea,15,15);
 
-
-//        d->show();
-
-
-
-    /*QRect sit(QPoint(-100, -50), QPoint(-90,-40));
-    painter.drawRect(sit);*/
-    /*int width_button = chairsVec[0]->width();
-    chairsVec[0]->move(-100, -50);
-    chairsVec[1]->move(table.width()-80-width_button/2, table.bottom()+20);
-
-    chairsVec[2]->move(table.right()+20-width_button/2, table.center().y()-100);
-    chairsVec[3]->move(table.right()+40-width_button/2, table.center().y());
-    chairsVec[4]->move(table.right()+20-width_button/2, table.center().y()+100);
-
-    chairsVec[5]->move(table.left()-20-width_button/2, table.center().y()-100);
-    chairsVec[6]->move(table.left()-40-width_button/2, table.center().y());
-    chairsVec[7]->move(table.left()-20-width_button/2, table.center().y()+100);*/
 }
 
 PokerTable::~PokerTable()

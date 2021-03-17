@@ -4,16 +4,15 @@
 #include <QPainter>
 #include <QDebug>
 
-class SitAtTheTable : public QWidget
+class SitPlace : public QWidget
 {
     Q_OBJECT
 public:
-    SitAtTheTable(const QPoint& pos, QWidget *parent = nullptr);
-    ~SitAtTheTable();
-    void paint(QPainter& painter, QPaintEvent *event = nullptr);
+    SitPlace(QWidget *parent = nullptr);
+    ~SitPlace();
+    //void paint(QPainter& painter, QPaintEvent *event = nullptr);
 private:
-    const QPoint* pos;
-    QWidget *parent = nullptr;
+
 
 protected:
     void paintEvent(QPaintEvent *event) override;
