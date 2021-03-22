@@ -6,7 +6,12 @@ PokerTable::PokerTable(QWidget *parent)
     : QWidget(parent),
       sitAtTheTableButton(new SitPlace(this))
 {
+//    sitAtTheTableButton->setGeometry(0,0,50,30);
+    sitAtTheTableButton->move(150,150);
 
+    qDebug() << "\tGeometry PokerTableClass: " << this->geometry() << "\n"
+             << "\tGeometry SitPlaceClass: " << sitAtTheTableButton->geometry() << "\n"
+             << "\tWindowGeometry: " << frameGeometry() << "\n\n";
 }
 
 void PokerTable::paintEvent(QPaintEvent* event)
