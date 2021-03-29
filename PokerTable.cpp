@@ -7,7 +7,9 @@ PokerTable::PokerTable(QWidget *parent)
       sitAtTheTableButton(new SitPlace(this))
 {
 //    sitAtTheTableButton->setGeometry(0,0,50,30);
-    sitAtTheTableButton->move(150,150);
+    //sitAtTheTableButton->move(150,150);
+
+    sitAtTheTableButton->move(window()->geometry().center());
 
     qDebug() << "\tGeometry PokerTableClass: " << this->geometry() << "\n"
              << "\tGeometry SitPlaceClass: " << sitAtTheTableButton->geometry() << "\n"
@@ -25,7 +27,6 @@ void PokerTable::paintEvent(QPaintEvent* event)
     else
         painter.setViewport(0, (height() - side) / 2, side, side);
     painter.setWindow(-100, -100, 200, 200);
-
 
     QBrush brushPokerTable(QColor(8,115,83));
     QPen penEdgeOfTable(QColor(85,110,107), 10);
@@ -48,6 +49,12 @@ void PokerTable::paintEvent(QPaintEvent* event)
 
     painter.setPen(penPokerTableCardArea);
     painter.drawRoundedRect(rectCardArea,15,15);
+
+ //  sitAtTheTableButton->move(this->geometry().center());
+    /*qDebug() << "\tGeometry PokerTableClass: " << this->geometry() << "\n"
+          << "\tGeometry SitPlaceClass: " << sitAtTheTableButton->geometry() << "\n"
+          << "\tWindowGeometry: " << frameGeometry() << "\n\n";
+    QWidget::paintEvent(event);*/
 
 }
 
