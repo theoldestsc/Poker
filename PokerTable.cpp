@@ -9,7 +9,7 @@ PokerTable::PokerTable(QWidget *parent)
 //    sitAtTheTableButton->setGeometry(0,0,50,30);
     //sitAtTheTableButton->move(150,150);
 
-    sitAtTheTableButton->move(window()->geometry().center());
+    sitAtTheTableButton->move(mapFromGlobal(QPoint(this->geometry().center().x(), this->geometry().topLeft().y()+10)));
 
     qDebug() << "\tGeometry PokerTableClass: " << this->geometry() << "\n"
              << "\tGeometry SitPlaceClass: " << sitAtTheTableButton->geometry() << "\n"
@@ -50,13 +50,22 @@ void PokerTable::paintEvent(QPaintEvent* event)
     painter.setPen(penPokerTableCardArea);
     painter.drawRoundedRect(rectCardArea,15,15);
 
- //  sitAtTheTableButton->move(this->geometry().center());
+    //sitAtTheTableButton->move(this->geometry().center());
     /*qDebug() << "\tGeometry PokerTableClass: " << this->geometry() << "\n"
           << "\tGeometry SitPlaceClass: " << sitAtTheTableButton->geometry() << "\n"
           << "\tWindowGeometry: " << frameGeometry() << "\n\n";
     QWidget::paintEvent(event);*/
 
 }
+
+void PokerTable::resizeEvent(QResizeEvent *event)
+{
+    Q_UNUSED(event);
+    sitAtTheTableButton->move(mapFromGlobal(QPoint(this->geometry().center().x(), this->geometry().topLeft().y()+10)));
+
+
+}
+
 
 PokerTable::~PokerTable()
 {

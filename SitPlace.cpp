@@ -27,6 +27,7 @@ void SitPlace::paintEvent(QPaintEvent* event)
 {
 
     Q_UNUSED(event);
+
     QPainter painter(this);
     QObject* p = parent();
     QWidget* parent = qobject_cast<QWidget*>(p);
